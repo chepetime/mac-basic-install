@@ -65,7 +65,7 @@ git config --global color.ui true
 git config --global user.name "José Lugo"
 git config --global user.email "chepe.time@gail.com"
 
-# Copy SSG Key
+# Copy SSH Key
 ## pbcopy < ~/.ssh/id_rsa.pub
 
 ## End tasks
