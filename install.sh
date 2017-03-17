@@ -62,8 +62,8 @@ sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/
 
 ## Configuring Git
 git config --global color.ui true
-git config --global user.name "José Lugo"
-git config --global user.email "chepe.time@gail.com"
+git config --global user.name "Yourname"
+git config --global user.email "yourmail@here.com"
 
 # Copy SSG Key
 ## pbcopy < ~/.ssh/id_rsa.pub

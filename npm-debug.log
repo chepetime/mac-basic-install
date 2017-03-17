@@ -1,0 +1,45 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'run', 'start' ]
+2 info using npm@4.1.2
+3 info using node@v7.7.3
+4 verbose run-script [ 'prestart', 'start', 'poststart' ]
+5 info lifecycle mac-basic-install@1.0.0~prestart: mac-basic-install@1.0.0
+6 silly lifecycle mac-basic-install@1.0.0~prestart: no script for prestart, continuing
+7 info lifecycle mac-basic-install@1.0.0~start: mac-basic-install@1.0.0
+8 verbose lifecycle mac-basic-install@1.0.0~start: unsafe-perm in lifecycle true
+9 verbose lifecycle mac-basic-install@1.0.0~start: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/jose/Projects/personal/mac-basic-install/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/Users/jose/.rvm/bin:/Users/jose/bin:/Users/jose/.composer/vendor/bin
+10 verbose lifecycle mac-basic-install@1.0.0~start: CWD: /Users/jose/Projects/personal/mac-basic-install
+11 silly lifecycle mac-basic-install@1.0.0~start: Args: [ '-c', './test.sh' ]
+12 silly lifecycle mac-basic-install@1.0.0~start: Returned: code: 126  signal: null
+13 info lifecycle mac-basic-install@1.0.0~start: Failed to exec start script
+14 verbose stack Error: mac-basic-install@1.0.0 start: `./test.sh`
+14 verbose stack Exit status 126
+14 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:279:16)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at EventEmitter.emit (events.js:194:7)
+14 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:40:14)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at ChildProcess.emit (events.js:194:7)
+14 verbose stack     at maybeClose (internal/child_process.js:899:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
+15 verbose pkgid mac-basic-install@1.0.0
+16 verbose cwd /Users/jose/Projects/personal/mac-basic-install
+17 error Darwin 16.4.0
+18 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "run" "start"
+19 error node v7.7.3
+20 error npm  v4.1.2
+21 error code ELIFECYCLE
+22 error mac-basic-install@1.0.0 start: `./test.sh`
+22 error Exit status 126
+23 error Failed at the mac-basic-install@1.0.0 start script './test.sh'.
+23 error Make sure you have the latest version of node.js and npm installed.
+23 error If you do, this is most likely a problem with the mac-basic-install package,
+23 error not with npm itself.
+23 error Tell the author that this fails on your system:
+23 error     ./test.sh
+23 error You can get information on how to open an issue for this project with:
+23 error     npm bugs mac-basic-install
+23 error Or if that isn't available, you can get their info via:
+23 error     npm owner ls mac-basic-install
+23 error There is likely additional logging output above.
+24 verbose exit [ 1, true ]
