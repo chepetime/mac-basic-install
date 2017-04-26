@@ -15,20 +15,26 @@ brew install yarn mas zsh zsh-completions zsh-syntax-highlighting
 ## Set default shell to zsh
 chsh -s $(which zsh)
 
+## If the above doesn't work, try this:
+# chsh -s /usr/local/bin/zsh
+
 ## Install Oh My zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+
+## Install Pure
+# pure   https://github.com/sindresorhus/pure
+npm install --global pure-prompt
 
 ## Install Apps via Cask | https://caskroom.github.io/search
-# brew cask install adobe-creative-cloud-cleaner-tool
-brew cask install adobe-acrobat
+brew cask install adobe-creative-cloud-cleaner-tool adobe-acrobat
 # brew cask install adobe-after-effects-cc adobe-illustrator-cc
 # brew cask install adobe-photoshop-cc adobe-photoshop-lightroom adobe-premiere-pro-cc
 brew cask install aerial alfred appcleaner caffeine cake ccleaner cleanmymac colorpicker dash dropbox endurance fantastical firefox
 brew cask install google-chrome image2icon imageoptim mamp marp p5 postman raindropio sketch sketch-toolbox
-brew cask install skyfonts slack smcfancontrol spotify steam sublime-text transmit transmission tripmode typora
+brew cask install skyfonts slack smcfancontrol spotify steam sublime-text transmission tripmode typora
 brew cask install virtualbox virtualbox-extension-pack vlc zeplin
 
-## Signin to Mac App Store | https://github.com/mas-cli/mas
+## Sign in to Mac App Store | https://github.com/mas-cli/mas
 mas signin yourmail@here.com
 
 ## Install Mac Store apps by ID
@@ -58,7 +64,7 @@ mas install 425424353 409201541 409183694 409203825 417375580 918858936 96780523
 # ls -s ~/Dropbox/Sublime/User/
 
 ## Add Sublime Text 3 to the command line
-sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
+# sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
 
 ## Configuring Git
 git config --global color.ui true
@@ -69,4 +75,4 @@ git config --global user.email "yourmail@here.com"
 ## pbcopy < ~/.ssh/id_rsa.pub
 
 ## End tasks
-echo Ends
+echo End of script
