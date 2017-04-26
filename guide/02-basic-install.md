@@ -1,22 +1,37 @@
 # Basic Install
 
-## Install Node.js
+> 🖥 Got a new Mac or a fresh macOS? 🍎 Use this tools to get everything you need!
 
-[Node.Js Official Site](https://nodejs.org/es/)
+## Preparation
 
-## Install devtools
+1. Get the latest version of [Node.Js from the official site](https://nodejs.org/en/).
+2. Sign In into the Mac App Store. (Only needed if you want to install Apps from the store)
+
+## Xcode Devtools
+
+Install Xcode from the App store or the Apple developer website.
+
+For installing Xcode command line tools run the command
 
 ```sh
 xcode-select --install
 ```
 
-## Install Homebrew
+It'll prompt you to install the command line tools. Follow the instructions and now you have Xcode and Xcode command line tools both installed and running.
+
+## Homebrew
+
+> 🍰 Homebrew is a Package manager for macOS.
+> <br> [Site and documentation](https://brew.sh)
+
+Install Homebrew
 
 ```sh
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-## Install CLI tools
+## CLI tools
+
 - [yarn](https://github.com/yarnpkg/yarn)
 - [mas](https://github.com/mas-cli/mas)
 
@@ -48,7 +63,10 @@ curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | 
 npm install --global pure-prompt
 ```
 
-## Install Apps via Cask
+## Install Apps with Cask
+
+> 🌰 A CLI workflow for the administration of Mac applications distributed as binaries.
+> <br> [Site and documentation](https://caskroom.github.io/)
 
 [Search for more app](https://caskroom.github.io/search)
 
@@ -103,13 +121,15 @@ In one command
 brew cask install adobe-creative-cloud-cleaner-tool adobe-acrobat adobe-after-effects-cc adobe-illustrator-cc adobe-photoshop-cc adobe-photoshop-lightroom adobe-premiere-pro-cc aerial alfred appcleaner caffeine cake ccleaner cleanmymac colorpicker dash dropbox endurance fantastical firefox google-chrome image2icon imageoptim mamp marp postman raindropio sketch sketch-toolbox skyfonts slack smcfancontrol spotify steam sublime-text transmission tripmode typora virtualbox virtualbox-extension-pack vlc zeplin
 ```
 
-## Install Mac Store apps
+## Install Mac Store apps using Mac App Store command line interface (MAS)
 
-Sign in to Mac App Store using [MAS](https://github.com/mas-cli/mas)
+> 📦 Mac App Store command line interface.
+> <br>[Site and documentation](https://github.com/mas-cli/mas)
+
+Before using MAS you might need to login into the Mac App Store, and then into MAS with:
 
 ```sh
-mas signin yourmail@here.com
-```
+mas signin yo
 
 Install Mac Store apps by ID
 
@@ -172,3 +192,9 @@ Copy SSH Key
 ```sh
 pbcopy < ~/.ssh/id_rsa.pub
 ```
+
+
+<br><br>
+---
+
+Made with ❤️ by [chepetime](https://github.com/chepetime) @ Mexico City

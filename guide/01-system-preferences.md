@@ -72,3 +72,9 @@ If this is a new computer, there are a couple tweaks you would like to make to t
 ## Accounts
 
 - Add an iCloud account and sync Calendar, Find my mac, Contacts etc.
+
+
+<br><br>
+---
+
+Made with ❤️ by [chepetime](https://github.com/chepetime) @ Mexico City

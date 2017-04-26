@@ -39,3 +39,9 @@ Log in and give access to computer
 ## SMC Fan
 
 ## Caffeine
+
+
+<br><br>
+---
+
+Made with ❤️ by [chepetime](https://github.com/chepetime) @ Mexico City
