@@ -24,6 +24,8 @@ The first thing you’ll need to install from the command line are the Command L
 xcode-select --install
 ```
 
+<br/>
+
 ## Homebrew
 
 Install the Homebrew package manager. This will allow you to install almost any app from the command line.
@@ -37,6 +39,8 @@ Make sure everything is up to date.
 ```sh
 brew update
 ```
+
+<br/>
 
 ## Install Apps
 
@@ -83,11 +87,13 @@ drawio \
 zoom
 ```
 
-Install other CLI utilities:
+znstall other CLI utilities:
 
 ```sh
 brew install youtube-dl awscli ffmpeg wget
 ```
+
+<br/>
 
 ## Install Apps from the AppStore
 
@@ -117,6 +123,8 @@ Common Apps:
 | noizio         | 928871589 | https://itunes.apple.com/mx/app/noizio/id928871589                        |
 | wifi-explorer  | 494803304 | https://itunes.apple.com/mx/app/wifi-explorer/id494803304                 |
 
+<br/>
+
 ## Install other app from their website
 
 ```sh
@@ -136,6 +144,8 @@ open https://adobe.com/mx/products/xd.html
 open https://logitech.com/es-mx/product/options
 open https://utsire.com/touch-bar-piano
 ```
+
+<br/>
 
 ## Shell
 
@@ -273,6 +283,8 @@ cd ~/.zsh && wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/maste
 echo "source $HOME/.zsh/history.zsh" >> ~/.zshrc
 ```
 
+<br/>
+
 ## Node.js
 
 Use Node Version Manager (nvm) to install Node.js. This allows you to easily switch between Node versions, which is essential.
@@ -324,6 +336,8 @@ And to set the default:
 nvm alias default xx.xx
 ```
 
+<br/>
+
 ## Git
 
 The first thing you should do with Git is set your global configuration.
@@ -361,6 +375,8 @@ Input your config and create some aliases.
 
 With the above aliases, I can run git s instead of git status, for example. The less I have to type, the happier I am.
 
+<br/>
+
 ## Defaults
 
 ```sh
@@ -370,12 +386,19 @@ defaults write com.apple.finder ShowPathbar -bool true
 # Show status bar
 defaults write com.apple.finder ShowStatusBar -bool true
 ```
+<br/>
+
+<br/>
 
 ## References, Inspiration and mail workload by:
 
-https://www.taniarascia.com/setting-up-a-brand-new-mac-for-development/
-https://tjay.dev/howto-my-terminal-shell-setup-hyper-js-zsh-starship/
-https://www.freecodecamp.org/news/how-to-set-up-a-brand-new-macbook/
+- https://www.taniarascia.com/setting-up-a-brand-new-mac-for-development/
+- https://tjay.dev/howto-my-terminal-shell-setup-hyper-js-zsh-starship/
+- https://www.freecodecamp.org/news/how-to-set-up-a-brand-new-macbook/
+
+
+<br/>
+<br/>
 
 ---
 
