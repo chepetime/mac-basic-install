@@ -390,7 +390,7 @@ defaults write com.apple.finder ShowStatusBar -bool true
 
 <br/>
 
-## References, Inspiration and mail workload by:
+## References, Inspiration and main workload by:
 
 - https://www.taniarascia.com/setting-up-a-brand-new-mac-for-development/
 - https://tjay.dev/howto-my-terminal-shell-setup-hyper-js-zsh-starship/
