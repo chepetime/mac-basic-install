@@ -402,4 +402,4 @@ defaults write com.apple.finder ShowStatusBar -bool true
 
 ---
 
-Made with ❤️ by chepetime @ Mexico City
+Made with ❤️ by [chepetime](https://github.com/chepetime) @ Mexico City
