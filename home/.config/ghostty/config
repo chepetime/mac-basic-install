@@ -1,0 +1,34 @@
+# Ghostty config — https://ghostty.org/docs/config
+# Location: ~/.config/ghostty/config
+
+# Font (install: brew install --cask font-geist-mono-nerd-font)
+font-family = GeistMono Nerd Font Mono
+font-size = 16
+
+# Shell
+working-directory = home
+shell-integration = zsh
+
+# Clipboard
+clipboard-read = allow
+clipboard-write = allow
+copy-on-select = clipboard
+
+# Appearance
+theme = Hopscotch.256
+bold-is-bright = true
+cursor-style = block
+background = 1C2021
+foreground = d4be98
+background-opacity = 0.96
+window-colorspace = display-p3
+
+# Input / mouse
+mouse-hide-while-typing = true
+mouse-scroll-multiplier = 2
+
+# Window
+window-save-state = always
+
+# Shift+Enter sends a newline (multi-line input in coding agents)
+keybind = shift+enter=text:\x1b\r
