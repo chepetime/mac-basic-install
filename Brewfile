@@ -10,6 +10,8 @@ cask "ghostty"                    # GPU terminal
 cask "herdr-app"                  # Desktop app for terminals and coding agents
 brew "herdr"                      # Agent multiplexer in the terminal
 brew "starship"                   # Shell prompt
+brew "zsh-autosuggestions"        # Suggest commands from history
+brew "zsh-fast-syntax-highlighting" # Color commands as you type
 cask "font-geist-mono-nerd-font"  # Terminal font with Nerd Font icons
 
 # ── Runtimes and package managers ───────────────────────────

@@ -44,8 +44,10 @@ To install only one tool, use the command in the [tool list](#tools). To see wha
 ### 5. Link the config files
 
 ```sh
-ln -sfn "$PWD/home/.zshrc"                 ~/.zshrc
 mkdir -p ~/.config/ghostty
+ln -sfn "$PWD/home/.zprofile"              ~/.zprofile
+ln -sfn "$PWD/home/.zshrc"                 ~/.zshrc
+ln -sfn "$PWD/home/.config/zsh"            ~/.config/zsh
 ln -sfn "$PWD/home/.config/starship.toml"  ~/.config/starship.toml
 ln -sfn "$PWD/home/.config/ghostty/config" ~/.config/ghostty/config
 ```
@@ -69,14 +71,40 @@ mise use --global pnpm@latest
 
 ### 8. Machine-only settings
 
-Put anything private (work aliases, tokens, work paths) in `~/.zshrc.local`. `.zshrc` loads it at the end. It is never committed. See [PUBLISHING.md](PUBLISHING.md).
+Put anything private (work aliases, tokens, work paths) in `~/.zshrc.local`. `.zshrc` loads it near the end. It is never committed. See [PUBLISHING.md](PUBLISHING.md).
+
+Some aliases read settings from it:
+
+```sh
+# ~/.zshrc.local
+export WEATHER_CITY="Lisbon"              # weather, wttr (empty = location from IP)
+export HOME_CURRENCY="EUR"                # currency, watchrate, ratehistory (default USD)
+export NONO_CLAUDE_PROFILE="my-profile"   # nclaude, scc (sandboxed Claude Code)
+```
 
 ## Shell
 
 - **Terminal:** [Ghostty](https://ghostty.org), with [Herdr](https://herdr.dev) to run terminals and coding agents side by side.
 - **Font:** [Geist Mono Nerd Font](https://www.nerdfonts.com). The Nerd Font glyphs are necessary for the Starship icons.
 - **Prompt:** [Starship](https://starship.rs), with the Nerd Font symbols preset in [`home/.config/starship.toml`](home/.config/starship.toml).
-- **Shell:** zsh, with a minimal [`home/.zshrc`](home/.zshrc): Homebrew, completion, history, mise, Starship.
+- **Shell:** zsh, no framework. [`home/.zshrc`](home/.zshrc) loads the modules in [`home/.config/zsh`](home/.config/zsh) and caches tool init scripts for a fast start.
+
+| File | What it does |
+| --- | --- |
+| `.zprofile` | Homebrew environment (static, no subprocess) and OrbStack |
+| `completion.zsh`, `history.zsh`, `key-bindings.zsh` | Completion menu, shared 50k history, emacs keys with prefix history search |
+| `aliases/core.zsh` | `ll`, `..`, `path`, `reload` |
+| `aliases/git.zsh` | Git and `gh` shortcuts; `repo`, `pr`, `pr-new` open the repo or PR in the browser |
+| `aliases/brew.zsh` | `brewm`: update and upgrade everything, clean up, notify |
+| `aliases/claude.zsh` | Claude Code and Codex launchers, nono sandbox variants, pipe helpers |
+| `aliases/pi.zsh` | Pi coding agent shortcuts |
+| `aliases/pnpm.zsh` | `p`, `dev`, `build`, `lint` |
+| `aliases/docker.zsh` | `d`, `dc`, `dcu`, `dex` |
+| `aliases/system.zsh` | `ports`, `killport`, `fkill`, `flushdns`, `battery` |
+| `aliases/network.zsh` | `myip`, `localip`, `netinfo`, `speedtest` |
+| `aliases/files.zsh`, `aliases/shortcuts.zsh` | `mkcd`, `extract`, `serve`, `uuid`, clipboard helpers |
+| `aliases/fun.zsh` | Weather, currency, timers, `pomodoro`, and other toys |
+| `aliases/coffee.zsh` | Step-by-step AeroPress timer |
 
 ## Tools
 
@@ -90,6 +118,8 @@ Install one tool: `brew install <name>` for formulae, `brew install --cask <name
 | Herdr (app) | `brew install --cask herdr-app` | Desktop app for terminals and coding agents |
 | Herdr (CLI) | `brew install herdr` | Agent multiplexer in the terminal |
 | Starship | `brew install starship` | Shell prompt |
+| zsh-autosuggestions | `brew install zsh-autosuggestions` | Suggest commands from history |
+| zsh-fast-syntax-highlighting | `brew install zsh-fast-syntax-highlighting` | Color commands as you type |
 | Geist Mono Nerd Font | `brew install --cask font-geist-mono-nerd-font` | Terminal font with icons |
 
 ### Runtimes

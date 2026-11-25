@@ -28,7 +28,9 @@ link() {
   ln -sfn "$src" "$dst"
   echo "linked $dst"
 }
+link .zprofile
 link .zshrc
+link .config/zsh
 link .config/starship.toml
 link .config/ghostty/config
 
