@@ -1,4 +1,4 @@
-# Claude Code and Codex launchers. Sandboxed variants use nono.
+# Claude Code launchers: lean wrapper, nono sandbox (nclaude, scc).
 
 # --- lean defaults (cut first-turn context cost) ---
 # The Artifact tool is off by default. Opt in per session:
@@ -19,18 +19,13 @@ _cc_args() {
   done
   (( art )) || reply+=(--disallowedTools Artifact)
 }
+
 claude() { _cc_args "$@"; command claude "${reply[@]}"; }
-alias claude-art='claude --art'
 
 # --- raw claude (no sandbox) ---
 alias ccn='claude'
 alias ccc='claude -c'
 alias ccr='claude --resume'
-
-# --- codex (unrestricted; bypasses approvals and sandboxing) ---
-alias cx='command codex --dangerously-bypass-approvals-and-sandbox'
-alias cxc='command codex resume --last --dangerously-bypass-approvals-and-sandbox'
-alias cxr='command codex resume --dangerously-bypass-approvals-and-sandbox'
 
 # --- sandboxed claude (nono) ---
 # Needs a nono profile. Set the name in ~/.zshrc.local:
@@ -83,31 +78,4 @@ scc() {
 }
 
 alias sccc='scc --here'
-alias sccr='nclaude --resume'
-
-# --- pipe helpers (raw) ---
-alias explain='claude -p "explain this concisely"'
-alias fixcode='claude -p "fix any bugs in this code"'
 alias review='claude -p "review this code, list issues"'
-alias totest='claude -p "write tests for this"'
-alias todocs='claude -p "add concise documentation"'
-
-# --- pipe helpers (sandboxed) ---
-alias nono-explain='nclaude -p "explain this concisely"'
-alias nono-fixcode='nclaude -p "fix any bugs in this code"'
-alias nono-review='nclaude -p "review this code, list issues"'
-alias nono-totest='nclaude -p "write tests for this"'
-alias nono-todocs='nclaude -p "add concise documentation"'
-
-# --- cheatsheets ---
-cheat() { curl -s "cheat.sh/$1"; }
-alias cht='cheat'
-
-# --- colorized man pages ---
-man() {
-  LESS_TERMCAP_md=$'\e[01;31m' \
-  LESS_TERMCAP_me=$'\e[0m' \
-  LESS_TERMCAP_us=$'\e[01;32m' \
-  LESS_TERMCAP_ue=$'\e[0m' \
-  command man "$@"
-}

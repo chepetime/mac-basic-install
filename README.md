@@ -133,25 +133,23 @@ brew bundle --file=Brewfile
 - **Terminal:** [Ghostty](https://ghostty.org), with [Herdr](https://herdr.dev) to run terminals and coding agents side by side. Config: [`home/.config/ghostty/config`](home/.config/ghostty/config).
 - **Font:** [Geist Mono](https://vercel.com/font) from [Nerd Fonts](https://www.nerdfonts.com). The Nerd Font glyphs are necessary for the prompt icons.
 - **Prompt:** [Starship](https://starship.rs), with the [Nerd Font Symbols preset](https://starship.rs/presets/nerd-font) in [`home/.config/starship.toml`](home/.config/starship.toml).
-- **Shell:** zsh, no framework. [`home/.zshrc`](home/.zshrc) loads the modules in [`home/.config/zsh`](home/.config/zsh) and caches the init scripts of mise, fzf, zoxide, direnv, and Starship. A new shell starts in about 50 ms.
+- **Shell:** zsh, no framework. [`home/.zshrc`](home/.zshrc) loads the modules in [`home/.config/zsh`](home/.config/zsh) and caches the init scripts of mise, fzf, and Starship. A new shell starts in about 50 ms.
 - **Plugins:** [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) and [fast-syntax-highlighting](https://github.com/zdharma-continuum/fast-syntax-highlighting), installed with Homebrew.
 
 | File | What it does |
 | --- | --- |
 | [`.zprofile`](home/.zprofile) | Homebrew environment (static, no subprocess) and [OrbStack](https://orbstack.dev) |
 | [`completion.zsh`](home/.config/zsh/completion.zsh), [`history.zsh`](home/.config/zsh/history.zsh), [`key-bindings.zsh`](home/.config/zsh/key-bindings.zsh) | Completion menu, shared 50k history, emacs keys with prefix history search. Adapted from [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) (MIT) |
-| [`aliases/core.zsh`](home/.config/zsh/aliases/core.zsh) | `ll`, `..`, `path`, `reload` |
-| [`aliases/git.zsh`](home/.config/zsh/aliases/git.zsh) | Git and `gh` shortcuts; `repo`, `pr`, `pr-new` open the repo or PR in the browser |
+| [`aliases/core.zsh`](home/.config/zsh/aliases/core.zsh) | `ls` and `grep` colors, `reload`, `..` |
+| [`aliases/git.zsh`](home/.config/zsh/aliases/git.zsh) | `repo`, `pr`: open the repo or the PR for this branch in the browser |
 | [`aliases/brew.zsh`](home/.config/zsh/aliases/brew.zsh) | `brewm`: update and upgrade everything, clean up, notify |
-| [`aliases/claude.zsh`](home/.config/zsh/aliases/claude.zsh) | [Claude Code](https://claude.com/product/claude-code) and [Codex](https://github.com/openai/codex) launchers, [nono](https://nono.sh) sandbox variants, pipe helpers |
-| [`aliases/pi.zsh`](home/.config/zsh/aliases/pi.zsh) | [Pi](https://pi.dev) coding agent shortcuts |
-| [`aliases/pnpm.zsh`](home/.config/zsh/aliases/pnpm.zsh) | `p`, `dev`, `build`, `lint` |
-| [`aliases/docker.zsh`](home/.config/zsh/aliases/docker.zsh) | `d`, `dc`, `dcu`, `dex` |
-| [`aliases/system.zsh`](home/.config/zsh/aliases/system.zsh) | `ports`, `killport`, `fkill`, `flushdns`, `battery` |
-| [`aliases/network.zsh`](home/.config/zsh/aliases/network.zsh) | `myip`, `localip`, `netinfo`, `speedtest` |
-| [`aliases/files.zsh`](home/.config/zsh/aliases/files.zsh), [`aliases/shortcuts.zsh`](home/.config/zsh/aliases/shortcuts.zsh) | `mkcd`, `extract`, `serve`, `uuid`, clipboard helpers |
-| [`aliases/fun.zsh`](home/.config/zsh/aliases/fun.zsh) | Weather ([wttr.in](https://wttr.in)), currency ([Frankfurter](https://frankfurter.dev)), timers, `pomodoro`, and other toys |
+| [`aliases/claude.zsh`](home/.config/zsh/aliases/claude.zsh) | [Claude Code](https://claude.com/product/claude-code) launchers: lean `claude` wrapper, `ccn`/`ccc`/`ccr`, [nono](https://nono.sh) sandbox (`nclaude`, `scc`, `sccc`), `review` |
+| [`aliases/pnpm.zsh`](home/.config/zsh/aliases/pnpm.zsh) | `setpnpm`, `build`, `start` |
+| [`aliases/network.zsh`](home/.config/zsh/aliases/network.zsh) | `localip`, `ipinfo` |
+| [`aliases/fun.zsh`](home/.config/zsh/aliases/fun.zsh) | `weather` ([wttr.in](https://wttr.in)), `ratehistory` ([Frankfurter](https://frankfurter.dev)) |
 | [`aliases/coffee.zsh`](home/.config/zsh/aliases/coffee.zsh) | Step-by-step AeroPress timer |
+
+I keep only the commands I use. Usage comes from my shell history and agent logs; unused aliases are in the git history.
 
 ## Git
 
@@ -187,8 +185,8 @@ Some aliases read settings from it:
 
 ```sh
 # ~/.zshrc.local
-export WEATHER_CITY="Lisbon"              # weather, wttr (empty = location from IP)
-export HOME_CURRENCY="EUR"                # currency, watchrate, ratehistory (default USD)
+export WEATHER_CITY="Lisbon"              # weather (empty = location from IP)
+export HOME_CURRENCY="EUR"                # ratehistory (default USD)
 export NONO_CLAUDE_PROFILE="my-profile"   # nclaude, scc (sandboxed Claude Code)
 ```
 
@@ -236,36 +234,24 @@ Install one tool with the command in its row. The [Brewfile](Brewfile) has all o
 | [mise](https://mise.jdx.dev/) | [`brew install mise`](https://formulae.brew.sh/formula/mise) | Node, pnpm, and other runtimes (replaces nvm) |
 | [uv](https://docs.astral.sh/uv/) | [`brew install uv`](https://formulae.brew.sh/formula/uv) | Python |
 | [rust](https://www.rust-lang.org/) | [`brew install rust`](https://formulae.brew.sh/formula/rust) | Safe, concurrent, practical language |
-| [zig](https://ziglang.org/) | [`brew install zig`](https://formulae.brew.sh/formula/zig) | Programming language designed for robustness, optimality, and clarity |
-| [sccache](https://github.com/mozilla/sccache) | [`brew install sccache`](https://formulae.brew.sh/formula/sccache) | Compiler cache |
 
 ### Modern CLI
 
 | Tool | Install | What for |
 | --- | --- | --- |
-| [eza](https://eza.rocks) | [`brew install eza`](https://formulae.brew.sh/formula/eza) | ls |
-| [bat](https://github.com/sharkdp/bat) | [`brew install bat`](https://formulae.brew.sh/formula/bat) | cat |
 | [fd](https://github.com/sharkdp/fd) | [`brew install fd`](https://formulae.brew.sh/formula/fd) | find |
 | [ripgrep](https://github.com/BurntSushi/ripgrep) | [`brew install ripgrep`](https://formulae.brew.sh/formula/ripgrep) | grep |
 | [fzf](https://junegunn.github.io/fzf/) | [`brew install fzf`](https://formulae.brew.sh/formula/fzf) | Fuzzy finder |
-| [zoxide](https://github.com/ajeetdsouza/zoxide) | [`brew install zoxide`](https://formulae.brew.sh/formula/zoxide) | cd (replaces autojump) |
 | [git-delta](https://dandavison.github.io/delta/) | [`brew install git-delta`](https://formulae.brew.sh/formula/git-delta) | Git diff pager |
-| [direnv](https://direnv.net/) | [`brew install direnv`](https://formulae.brew.sh/formula/direnv) | Per-directory env vars |
 | [jq](https://jqlang.github.io/jq/) | [`brew install jq`](https://formulae.brew.sh/formula/jq) | Lightweight and flexible command-line JSON processor |
-| [gum](https://github.com/charmbracelet/gum) | [`brew install gum`](https://formulae.brew.sh/formula/gum) | Pretty shell-script prompts |
 | [tree](https://oldmanprogrammer.net/source.php?dir=projects/tree) | [`brew install tree`](https://formulae.brew.sh/formula/tree) | Display directories as trees (with optional color/HTML output) |
-| [ncdu](https://dev.yorhel.nl/ncdu) | [`brew install ncdu`](https://formulae.brew.sh/formula/ncdu) | Disk usage |
 | [coreutils](https://www.gnu.org/software/coreutils/) | [`brew install coreutils`](https://formulae.brew.sh/formula/coreutils) | GNU File, Shell, and Text utilities |
-| [fswatch](https://emcrisostomo.github.io/fswatch/) | [`brew install fswatch`](https://formulae.brew.sh/formula/fswatch) | Monitor a directory for changes and run a shell command |
 | [terminal-notifier](https://github.com/julienXX/terminal-notifier) | [`brew install terminal-notifier`](https://formulae.brew.sh/formula/terminal-notifier) | Send macOS User Notifications from the command-line |
 
-### System monitoring
+### System
 
 | Tool | Install | What for |
 | --- | --- | --- |
-| [btop](https://github.com/aristocratos/btop) | [`brew install btop`](https://formulae.brew.sh/formula/btop) | Resource monitor. C++ version and continuation of bashtop and bpytop |
-| [macmon](https://github.com/vladkens/macmon) | [`brew install macmon`](https://formulae.brew.sh/formula/macmon) | Apple Silicon power/temperature |
-| [fastfetch](https://github.com/fastfetch-cli/fastfetch) | [`brew install fastfetch`](https://formulae.brew.sh/formula/fastfetch) | Like neofetch, but much faster because written mostly in C |
 | [mole](https://mole.fit) | [`brew install mole`](https://formulae.brew.sh/formula/mole) | Mac cleanup |
 
 ### Git and GitHub
@@ -283,7 +269,6 @@ Install one tool with the command in its row. The [Brewfile](Brewfile) has all o
 | --- | --- | --- |
 | [gitleaks](https://gitleaks.io/) | [`brew install gitleaks`](https://formulae.brew.sh/formula/gitleaks) | Secret scanner |
 | [zizmor](https://docs.zizmor.sh/) | [`brew install zizmor`](https://formulae.brew.sh/formula/zizmor) | GitHub Actions security audit |
-| [osv-scanner](https://google.github.io/osv-scanner/) | [`brew install osv-scanner`](https://formulae.brew.sh/formula/osv-scanner) | Dependency vulnerability scanner |
 | [nono](https://nono.sh) | [`brew install nono`](https://formulae.brew.sh/formula/nono) | Sandbox for agents |
 
 ### Cloud, containers, databases
@@ -309,13 +294,9 @@ Install one tool with the command in its row. The [Brewfile](Brewfile) has all o
 | [Claude](https://claude.com/download) | [`brew install --cask claude`](https://formulae.brew.sh/cask/claude) | Claude desktop |
 | [Claude Code](https://claude.com/product/claude-code) | [`brew install --cask claude-code`](https://formulae.brew.sh/cask/claude-code) | Claude Code CLI |
 | [Codex](https://github.com/openai/codex) | [`brew install --cask codex`](https://formulae.brew.sh/cask/codex) | OpenAI's coding agent that runs in your terminal |
-| [ChatGPT](https://chatgpt.com/) | [`brew install --cask chatgpt`](https://formulae.brew.sh/cask/chatgpt) | OpenAI's official ChatGPT desktop app |
 | [pi-coding-agent](https://pi.dev/) | [`brew install pi-coding-agent`](https://formulae.brew.sh/formula/pi-coding-agent) | AI agent toolkit |
-| [ollama](https://ollama.com/) | [`brew install ollama`](https://formulae.brew.sh/formula/ollama) | Local models |
 | [Wispr Flow](https://wisprflow.ai/) | [`brew install --cask wispr-flow`](https://formulae.brew.sh/cask/wispr-flow) | Voice dictation |
-| [tokenuse](https://github.com/russmckendrick/tokenuse) | [`brew install russmckendrick/tap/tokenuse`](https://github.com/russmckendrick/homebrew-tap) | Local-only Rust TUI for AI coding tool token and cost usage |
 | [Token Use](https://github.com/russmckendrick/tokenuse) | [`brew install --cask russmckendrick/tap/tokenuse-desktop`](https://github.com/russmckendrick/homebrew-tap) | Desktop app for local AI coding tool token and cost usage |
-| [AgentsView](https://www.agentsview.io/) | [`brew install --cask agentsview`](https://formulae.brew.sh/cask/agentsview) | Browse, search and analyse your past AI coding sessions |
 | [Textream](https://textream.net/) | [`brew install --cask f/textream/textream`](https://github.com/f/homebrew-textream) | Teleprompter that highlights scripts in real time as you speak |
 
 ### Apps
@@ -334,7 +315,6 @@ Install one tool with the command in its row. The [Brewfile](Brewfile) has all o
 | [Miro](https://miro.com/) | [`brew install --cask miro`](https://formulae.brew.sh/cask/miro) | Online collaborative whiteboard platform |
 | [Notion](https://www.notion.com/) | [`brew install --cask notion`](https://formulae.brew.sh/cask/notion) | App to write, plan, collaborate, and get organised |
 | [Notion Calendar](https://www.notion.com/product/calendar) | [`brew install --cask notion-calendar`](https://formulae.brew.sh/cask/notion-calendar) | Calendar for professionals and teams |
-| [Notion Mail](https://www.notion.com/product/mail) | [`brew install --cask notion-mail`](https://formulae.brew.sh/cask/notion-mail) | Email client integrated with Notion workspace |
 | [Spotify](https://www.spotify.com/) | [`brew install --cask spotify`](https://formulae.brew.sh/cask/spotify) | Music streaming service |
 | [Numi](https://numi.app/) | [`brew install --cask numi`](https://formulae.brew.sh/cask/numi) | Calculator |
 
@@ -347,8 +327,6 @@ Needs an App Store sign-in. `brew bundle` installs them with [mas](https://githu
 | [mas](https://github.com/mas-cli/mas) | [`brew install mas`](https://formulae.brew.sh/formula/mas) | Mac App Store command-line interface |
 | [BetterSnapTool](https://apps.apple.com/app/id417375580) | [`mas install 417375580`](https://apps.apple.com/app/id417375580) | Window snapping |
 | [Paste](https://apps.apple.com/app/id967805235) | [`mas install 967805235`](https://apps.apple.com/app/id967805235) | Clipboard history |
-| [Folder Peek](https://apps.apple.com/app/id1615988943) | [`mas install 1615988943`](https://apps.apple.com/app/id1615988943) | Folders in the menu bar |
-| [Speedtest](https://apps.apple.com/app/id1153157709) | [`mas install 1153157709`](https://apps.apple.com/app/id1153157709) | Network speed test |
 | [Xcode](https://apps.apple.com/app/id497799835) | [`mas install 497799835`](https://apps.apple.com/app/id497799835) | Apple SDKs and simulators |
 | [Keynote](https://apps.apple.com/app/id361285480) | [`mas install 361285480`](https://apps.apple.com/app/id361285480) | Presentations |
 | [Pages](https://apps.apple.com/app/id361309726) | [`mas install 361309726`](https://apps.apple.com/app/id361309726) | Documents |
@@ -383,7 +361,6 @@ Needs an App Store sign-in. `brew bundle` installs them with [mas](https://githu
 | Tool | Install | What for |
 | --- | --- | --- |
 | [DockDoor](https://dockdoor.net/) | [`brew install --cask dockdoor`](https://formulae.brew.sh/cask/dockdoor) | Window previews in the Dock |
-| [MonitorControl](https://github.com/MonitorControl/MonitorControl) | [`brew install --cask monitorcontrol`](https://formulae.brew.sh/cask/monitorcontrol) | External display brightness |
 | [Logitech Options+](https://www.logitech.com/en-us/software/logi-options-plus.html) | [`brew install --cask logi-options+`](https://formulae.brew.sh/cask/logi-options+) | Software for Logitech devices |
 | [Purge](https://purgemac.com/) | [`brew install --cask purge`](https://formulae.brew.sh/cask/purge) | Clear caches and junk files |
 

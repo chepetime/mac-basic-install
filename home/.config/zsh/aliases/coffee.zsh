@@ -1,10 +1,4 @@
-# Aeropress coffee brewing timer
-# Usage: coffee [grams] [ratio]
-#   coffee         # 20g at 1:12 (default)
-#   coffee 18      # 18g at 1:14
-#   coffee 15 16   # 15g at 1:16
-
-alias aeropress='coffee'
+# AeroPress brewing timer. Usage: coffee [grams] [ratio]
 
 coffee() {
   # ─────────────────────────────────────────────────────────────────────────

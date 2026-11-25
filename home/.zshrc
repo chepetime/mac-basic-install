@@ -82,26 +82,6 @@ if (( $+commands[fzf] )); then
   fi
 fi
 
-# zoxide — smarter cd (z, zi)
-(( $+commands[zoxide] )) && _cached_init zoxide $commands[zoxide] -- zoxide init zsh
-
-# direnv — per-directory env vars
-(( $+commands[direnv] )) && _cached_init direnv $commands[direnv] -- direnv hook zsh
-
-# eza — modern ls
-if (( $+commands[eza] )); then
-  alias ll='eza -la --icons --group-directories-first --git'
-  alias la='eza -a --icons --group-directories-first'
-  alias l='eza --icons --group-directories-first'
-  alias lt='eza --tree --icons --level=3'
-fi
-
-# bat — modern cat, also used as man pager
-if (( $+commands[bat] )); then
-  alias catp='bat'
-  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-fi
-
 # ─────────────────────────────────────────────────────────────
 # Prompt — Starship (needs a Nerd Font in the terminal)
 # ─────────────────────────────────────────────────────────────

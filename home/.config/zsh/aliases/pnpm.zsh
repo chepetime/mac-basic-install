@@ -1,3 +1,5 @@
+# pnpm
+
 # Update npm and pnpm only (no Node version change)
 setpnpm() {
   echo "Updating npm to latest..."
@@ -13,16 +15,5 @@ setpnpm() {
   echo "  pnpm:  $(pnpm -v)"
 }
 
-# pnpm
-alias p='pnpm'
-alias pa='pnpm add'
-alias prm='pnpm remove'
-alias pd='pnpm dev'
-alias pb='pnpm build'
-
-# Dev shortcuts
-alias dev='pnpm dev'
 alias build='pnpm build'
-alias lint='pnpm lint'
-alias pt='pnpm test'
 alias start='pnpm start'

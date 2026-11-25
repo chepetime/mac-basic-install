@@ -17,30 +17,18 @@ cask "font-geist-mono-nerd-font"  # Terminal font with Nerd Font icons
 brew "mise"                       # Node, pnpm, and other runtimes (replaces nvm)
 brew "uv"                         # Python
 brew "rust"
-brew "zig"
-brew "sccache"                    # Compiler cache
 
 # ── Modern CLI ──────────────────────────────────────────────
-brew "eza"                        # ls
-brew "bat"                        # cat
 brew "fd"                         # find
 brew "ripgrep"                    # grep
 brew "fzf"                        # Fuzzy finder
-brew "zoxide"                     # cd (replaces autojump)
 brew "git-delta"                  # Git diff pager
-brew "direnv"                     # Per-directory env vars
 brew "jq"
-brew "gum"                        # Pretty shell-script prompts
 brew "tree"
-brew "ncdu"                       # Disk usage
 brew "coreutils"
-brew "fswatch"
 brew "terminal-notifier"
 
-# ── System monitoring ───────────────────────────────────────
-brew "btop"
-brew "macmon"                     # Apple Silicon power/temperature
-brew "fastfetch"
+# ── System ──────────────────────────────────────────────────
 brew "mole"                       # Mac cleanup
 
 # ── Git and GitHub ──────────────────────────────────────────
@@ -52,7 +40,6 @@ brew "shellcheck"                 # Lint shell scripts
 # ── Security ────────────────────────────────────────────────
 brew "gitleaks"                   # Secret scanner
 brew "zizmor"                     # GitHub Actions security audit
-brew "osv-scanner"                # Dependency vulnerability scanner
 brew "nono"                       # Sandbox for agents
 
 # ── Cloud, containers, databases ────────────────────────────
@@ -69,13 +56,9 @@ brew "poppler"                    # PDF tools
 cask "claude"                     # Claude desktop
 cask "claude-code"                # Claude Code CLI
 cask "codex"
-cask "chatgpt"
 brew "pi-coding-agent"
-brew "ollama"                     # Local models
 cask "wispr-flow"                 # Voice dictation
-brew "russmckendrick/tap/tokenuse"
 cask "russmckendrick/tap/tokenuse-desktop"
-cask "agentsview"
 cask "f/textream/textream"
 
 # ── Apps ────────────────────────────────────────────────────
@@ -91,7 +74,6 @@ cask "figma"
 cask "miro"
 cask "notion"
 cask "notion-calendar"
-cask "notion-mail"
 cask "spotify"
 cask "numi"                       # Calculator
 
@@ -99,8 +81,6 @@ cask "numi"                       # Calculator
 brew "mas"
 mas "BetterSnapTool", id: 417375580   # Window snapping
 mas "Paste", id: 967805235            # Clipboard history
-mas "Folder Peek", id: 1615988943     # Folders in the menu bar
-mas "Speedtest", id: 1153157709        # Network speed test
 mas "Xcode", id: 497799835            # Apple SDKs and simulators
 mas "Keynote", id: 361285480          # Presentations
 mas "Pages", id: 361309726            # Documents
@@ -129,6 +109,5 @@ vscode "vscode-icons-team.vscode-icons"       # File icons
 
 # ── macOS utilities ─────────────────────────────────────────
 cask "dockdoor"                   # Window previews in the Dock
-cask "monitorcontrol"             # External display brightness
 cask "logi-options+"
 cask "purge"                     # Clear caches and junk files

@@ -1,3 +1,5 @@
+# Homebrew maintenance
+
 # Homebrew
 brewm() {
   local SECONDS=0 doctor=false
@@ -60,7 +62,3 @@ brewm() {
   echo "\nDone in ${mins}m ${secs}s."
   osascript -e "display notification \"Homebrew maintenance done (${mins}m ${secs}s)\" with title \"brewm\"" 2>/dev/null
 }
-
-alias brewl='brew list'
-alias brews='brew search'
-alias brewi='brew info'
