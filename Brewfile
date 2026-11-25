@@ -79,6 +79,12 @@ cask "agentsview"
 cask "f/textream/textream"
 
 # ── Apps ────────────────────────────────────────────────────
+cask "1password"                  # Password manager (sign in first)
+cask "google-chrome"              # Browser
+cask "slack"                      # Team chat
+cask "zoom"                       # Video calls
+cask "fathom"                     # Meeting recorder and notes
+cask "tailscale-app"              # Private network (WireGuard)
 cask "raycast"                    # Launcher (replaces Spotlight/Alfred)
 cask "visual-studio-code"
 cask "figma"

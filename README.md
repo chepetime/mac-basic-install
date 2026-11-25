@@ -322,6 +322,12 @@ Install one tool with the command in its row. The [Brewfile](Brewfile) has all o
 
 | Tool | Install | What for |
 | --- | --- | --- |
+| [1Password](https://1password.com/) | [`brew install --cask 1password`](https://formulae.brew.sh/cask/1password) | Password manager (sign in first) |
+| [Google Chrome](https://www.google.com/chrome/) | [`brew install --cask google-chrome`](https://formulae.brew.sh/cask/google-chrome) | Browser |
+| [Slack](https://slack.com/) | [`brew install --cask slack`](https://formulae.brew.sh/cask/slack) | Team chat |
+| [Zoom](https://www.zoom.us/) | [`brew install --cask zoom`](https://formulae.brew.sh/cask/zoom) | Video calls |
+| [Fathom](https://fathom.video/) | [`brew install --cask fathom`](https://formulae.brew.sh/cask/fathom) | Meeting recorder and notes |
+| [Tailscale](https://tailscale.com/) | [`brew install --cask tailscale-app`](https://formulae.brew.sh/cask/tailscale-app) | Private network (WireGuard) |
 | [Raycast](https://raycast.com/) | [`brew install --cask raycast`](https://formulae.brew.sh/cask/raycast) | Launcher (replaces Spotlight/Alfred) |
 | [Microsoft Visual Studio Code](https://code.visualstudio.com/) | [`brew install --cask visual-studio-code`](https://formulae.brew.sh/cask/visual-studio-code) | Open-source code editor |
 | [Figma](https://www.figma.com/) | [`brew install --cask figma`](https://formulae.brew.sh/cask/figma) | Collaborative team software |
