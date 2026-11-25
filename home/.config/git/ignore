@@ -1,0 +1,17 @@
+**/.claude/settings.local.json
+
+# macOS (merged from ~/.gitignore)
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+.VolumeIcon.icns
+.DocumentRevisions-V100
+.fseventsd
+.TemporaryItems
+.apdisk
+
+**/.claude/.cc-writes/

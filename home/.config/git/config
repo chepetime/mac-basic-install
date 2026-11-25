@@ -1,0 +1,24 @@
+# Shared git settings. Location: ~/.config/git/config (symlink to this file).
+#
+# Git reads this file and ~/.gitconfig. Keep ~/.gitconfig machine-only (not in
+# this repo): user.name, user.email, includeIf blocks for work folders, and the
+# credential helper that `gh auth setup-git` writes. `git config --global`
+# writes to ~/.gitconfig, so this file stays clean.
+#
+# Global ignore rules: ~/.config/git/ignore (the default location).
+
+[init]
+	defaultBranch = main
+
+[push]
+	autoSetupRemote = true
+
+# Use HTTPS + gh for GitHub, also for git@github.com: URLs (no SSH keys needed)
+[url "https://github.com/"]
+	insteadOf = git@github.com:
+
+# delta: brew install git-delta
+[core]
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only

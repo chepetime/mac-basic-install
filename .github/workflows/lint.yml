@@ -1,0 +1,27 @@
+name: Lint
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Install zsh
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq zsh
+      - name: shellcheck
+        run: shellcheck install.sh macos/defaults.sh .githooks/pre-commit
+      - name: zsh syntax
+        run: |
+          for f in home/.zshrc home/.zprofile home/.config/zsh/*.zsh home/.config/zsh/aliases/*.zsh; do
+            zsh -n "$f" || { echo "::error file=$f::zsh syntax error"; exit 1; }
+          done
+      - name: Brewfile syntax
+        run: ruby -c Brewfile

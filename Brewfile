@@ -8,7 +8,6 @@ tap "russmckendrick/tap"
 # ── Terminal ────────────────────────────────────────────────
 cask "ghostty"                    # GPU terminal
 cask "herdr-app"                  # Desktop app for terminals and coding agents
-brew "herdr"                      # Agent multiplexer in the terminal
 brew "starship"                   # Shell prompt
 brew "zsh-autosuggestions"        # Suggest commands from history
 brew "zsh-fast-syntax-highlighting" # Color commands as you type
@@ -48,6 +47,7 @@ brew "mole"                       # Mac cleanup
 brew "gh"
 brew "act"                        # Run GitHub Actions locally
 brew "actionlint"                 # Lint workflow files
+brew "shellcheck"                 # Lint shell scripts
 
 # ── Security ────────────────────────────────────────────────
 brew "gitleaks"                   # Secret scanner
@@ -88,6 +88,39 @@ cask "notion-calendar"
 cask "notion-mail"
 cask "spotify"
 cask "numi"                       # Calculator
+
+# ── Mac App Store (needs App Store sign-in; mas = CLI for it) ─
+brew "mas"
+mas "BetterSnapTool", id: 417375580   # Window snapping
+mas "Paste", id: 967805235            # Clipboard history
+mas "Folder Peek", id: 1615988943     # Folders in the menu bar
+mas "Speedtest", id: 1153157709
+mas "Xcode", id: 497799835
+mas "Keynote", id: 409183694
+mas "Keynote Creator Studio", id: 361285480
+mas "Pages Creator Studio", id: 361309726
+mas "Numbers Creator Studio", id: 361304891
+
+# ── VS Code extensions ──────────────────────────────────────
+vscode "anthropic.claude-code"
+vscode "openai.chatgpt"
+vscode "openai.codex-audio"
+vscode "biomejs.biome"
+vscode "bradlc.vscode-tailwindcss"
+vscode "formulahendry.auto-rename-tag"
+vscode "github.vscode-github-actions"
+vscode "graphql.vscode-graphql"
+vscode "graphql.vscode-graphql-syntax"
+vscode "mquandalle.graphql"
+vscode "prisma.prisma"
+vscode "redhat.vscode-yaml"
+vscode "ms-vscode.vscode-typescript-next"
+vscode "ms-azuretools.vscode-containers"
+vscode "ms-vscode-remote.remote-containers"
+vscode "cweijan.vscode-postgresql-client2"
+vscode "cweijan.dbclient-jdbc"
+vscode "ms-vscode.sublime-keybindings"
+vscode "vscode-icons-team.vscode-icons"
 
 # ── macOS utilities ─────────────────────────────────────────
 cask "dockdoor"                   # Window previews in the Dock

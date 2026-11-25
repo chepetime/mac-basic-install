@@ -30,11 +30,12 @@ brewm() {
   echo "\nUpgrading formulae..."
   _brewm_step "brew upgrade --formula" brew upgrade --formula
 
+  # --greedy also upgrades casks that update themselves, and Claude Code
   echo "\nUpgrading casks (greedy)..."
   _brewm_step "brew upgrade --cask" brew upgrade --cask --greedy
 
-  echo "\nUpdating Claude Code..."
-  _brewm_step "claude update" claude update
+  echo "\nUpgrading Mac App Store apps..."
+  (( $+commands[mas] )) && _brewm_step "mas upgrade" mas upgrade
 
   echo "\nUpdating pi extensions..."
   _brewm_step "pi extensions" _brewm_pi_update

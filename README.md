@@ -6,70 +6,89 @@ How I set up a new Mac for web development and coding agents. Almost everything 
 
 ## Quick start
 
+On a new Mac, open Terminal and run:
+
 ```sh
-git clone https://github.com/chepetime/mac-basic-install.git ~/Projects/mac-basic-install
-cd ~/Projects/mac-basic-install
-./install.sh
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/chepetime/mac-basic-install/main/install.sh)"
 ```
 
-`install.sh` is safe to run more than once. It does the steps below for you.
+The script installs the Command Line Developer Tools and Homebrew, clones this repo to `~/Projects/mac-basic-install` (change it with `MAC_SETUP_DIR`), installs everything in the [Brewfile](Brewfile), links the config files, installs Node, and applies the [macOS settings](macos/defaults.sh). It is safe to run more than once. Add `--no-defaults` to skip the macOS settings.
 
-## Step by step
+Before you start, update macOS: **System Settings → General → Software Update**.
 
-### 1. Update macOS
+### After the script
 
-Open **System Settings → General → Software Update** and install all updates.
+1. **Sign in.** First 1Password. Then the App Store, then GitHub:
+   ```sh
+   gh auth login
+   gh auth setup-git
+   ```
+2. **Install App Store apps.** These fail if you are not signed in to the App Store. Run the Brewfile again after sign-in:
+   ```sh
+   brew bundle --file=~/Projects/mac-basic-install/Brewfile
+   ```
+3. **Set your git identity.** It goes in `~/.gitconfig`, which is not in this repo:
+   ```sh
+   git config --global user.name "Your Name"
+   git config --global user.email "you@example.com"
+   ```
+4. **Raycast.** Set it as the Spotlight replacement (`⌘ Space`). Import your settings from a `.rayconfig` export. Keep that file out of this repo.
+5. **Agents.** Run `claude` and `codex` once to sign in.
+6. **Check.** `brew bundle check --file=~/Projects/mac-basic-install/Brewfile` lists anything that is missing.
 
-### 2. Install the Command Line Developer Tools
+## What the script does, step by step
+
+To do it by hand, run these from the repo folder.
 
 ```sh
-xcode-select --install
-```
-
-### 3. Install Homebrew
-
-```sh
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+xcode-select --install                                   # 1. Command Line Developer Tools
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"  # 2. Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
-```
+brew bundle --file=Brewfile                              # 3. Apps, tools, App Store apps, VS Code extensions
 
-### 4. Install all apps and tools
-
-```sh
-brew bundle --file=Brewfile
-```
-
-To install only one tool, use the command in the [tool list](#tools). To see what is missing, run `brew bundle check --file=Brewfile`.
-
-### 5. Link the config files
-
-```sh
-mkdir -p ~/.config/ghostty
+mkdir -p ~/.config/ghostty ~/.config/git                 # 4. Config files
 ln -sfn "$PWD/home/.zprofile"              ~/.zprofile
 ln -sfn "$PWD/home/.zshrc"                 ~/.zshrc
 ln -sfn "$PWD/home/.config/zsh"            ~/.config/zsh
 ln -sfn "$PWD/home/.config/starship.toml"  ~/.config/starship.toml
 ln -sfn "$PWD/home/.config/ghostty/config" ~/.config/ghostty/config
+ln -sfn "$PWD/home/.config/git/config"     ~/.config/git/config
+ln -sfn "$PWD/home/.config/git/ignore"     ~/.config/git/ignore
+
+mise use --global node@lts pnpm@latest                   # 5. Node and pnpm
+bash macos/defaults.sh                                   # 6. macOS settings
 ```
 
-Ghostty also reads `~/Library/Application Support/com.mitchellh.ghostty/config`. If that file exists, remove it or keep it empty, so it does not override this config.
+Ghostty also reads `~/Library/Application Support/com.mitchellh.ghostty/config`. If that file exists, remove it so it does not override this config.
 
-### 6. Install Node
+## One install method per tool
 
-[mise](https://mise.jdx.dev) manages Node, pnpm, and other runtimes. Do not install Node with Homebrew or nvm.
+Homebrew installs and updates everything. Do not mix it with other installers:
+
+- **Node and pnpm:** use mise. Do not install them with Homebrew or nvm.
+- **Claude Code, mise, Herdr:** use the Homebrew packages. Do not use their own `curl` installers. `brewm` upgrades them with `brew upgrade --greedy`.
+- **App Store apps:** `mas` installs them from the Brewfile. `brewm` upgrades them.
+
+To move a Mac that used the native installers to Homebrew:
 
 ```sh
-mise use --global node@lts
-mise use --global pnpm@latest
+rm ~/.local/bin/claude && rm -rf ~/.local/share/claude/versions   # sessions and settings in ~/.claude stay
+rm ~/.local/bin/mise                                              # tools in ~/.local/share/mise stay
+rm ~/.local/bin/herdr-app ~/.local/bin/herdr-core && rm -rf ~/Applications/Herdr.app ~/.local/share/herdr-core
+brew bundle --file=Brewfile
 ```
 
-### 7. Sign in
+## Git
 
-- `gh auth login` — GitHub CLI.
-- `claude` and `codex` — sign in on first run.
-- Open Raycast and set it as the Spotlight replacement (`⌘ Space`).
+[`home/.config/git/config`](home/.config/git/config) holds the shared settings: `main` as the default branch, `push.autoSetupRemote`, HTTPS for GitHub through `gh` (no SSH keys), and delta as the pager. [`home/.config/git/ignore`](home/.config/git/ignore) is the global ignore list.
 
-### 8. Machine-only settings
+Git also reads `~/.gitconfig`. Keep it machine-only: your name and email, `includeIf` blocks for work folders, and the credential helper from `gh auth setup-git`.
+
+## macOS settings
+
+[`macos/defaults.sh`](macos/defaults.sh) sets the Dock (auto-hide, no recent apps), Finder (path bar, status bar, list view, search the current folder), tap to click, no natural scrolling, and the screenshot folder `~/Documents/Screenshots`. It does not use `sudo`.
+
+## Machine-only settings
 
 Put anything private (work aliases, tokens, work paths) in `~/.zshrc.local`. `.zshrc` loads it near the end. It is never committed. See [PUBLISHING.md](PUBLISHING.md).
 
@@ -115,8 +134,7 @@ Install one tool: `brew install <name>` for formulae, `brew install --cask <name
 | Tool | Install | What for |
 | --- | --- | --- |
 | Ghostty | `brew install --cask ghostty` | Terminal |
-| Herdr (app) | `brew install --cask herdr-app` | Desktop app for terminals and coding agents |
-| Herdr (CLI) | `brew install herdr` | Agent multiplexer in the terminal |
+| Herdr | `brew install --cask herdr-app` | Desktop app for terminals and coding agents |
 | Starship | `brew install starship` | Shell prompt |
 | zsh-autosuggestions | `brew install zsh-autosuggestions` | Suggest commands from history |
 | zsh-fast-syntax-highlighting | `brew install zsh-fast-syntax-highlighting` | Color commands as you type |
@@ -164,6 +182,7 @@ Install one tool: `brew install <name>` for formulae, `brew install --cask <name
 | GitHub CLI | `brew install gh` | PRs, issues, Actions |
 | act | `brew install act` | Run GitHub Actions locally |
 | actionlint | `brew install actionlint` | Lint workflow files |
+| ShellCheck | `brew install shellcheck` | Lint shell scripts |
 | gitleaks | `brew install gitleaks` | Find secrets in git |
 | zizmor | `brew install zizmor` | Audit GitHub Actions security |
 | osv-scanner | `brew install osv-scanner` | Find vulnerable dependencies |
@@ -212,6 +231,24 @@ Install one tool: `brew install <name>` for formulae, `brew install --cask <name
 | Notion, Notion Calendar, Notion Mail | `brew install --cask notion notion-calendar notion-mail` | Notes, calendar, mail |
 | Spotify | `brew install --cask spotify` | Music |
 | Numi | `brew install --cask numi` | Calculator |
+
+### Mac App Store
+
+Install `mas` first (`brew install mas`) and sign in to the App Store. Then `mas install <id>`.
+
+| App | ID | What for |
+| --- | --- | --- |
+| BetterSnapTool | `417375580` | Window snapping |
+| Paste | `967805235` | Clipboard history |
+| Folder Peek | `1615988943` | Folders in the menu bar |
+| Speedtest | `1153157709` | Network speed |
+| Xcode | `497799835` | Apple SDKs and simulators |
+| Keynote | `409183694` | Slides |
+| Keynote, Pages, Numbers Creator Studio | `361285480`, `361309726`, `361304891` | Apple office apps |
+
+### VS Code extensions
+
+The Brewfile installs 19 extensions with `vscode "…"` lines: Claude Code, ChatGPT/Codex, Biome, Tailwind CSS, GraphQL, Prisma, YAML, Dev Containers, a PostgreSQL client, and others. One extension: `code --install-extension <id>`.
 
 ### macOS utilities
 
