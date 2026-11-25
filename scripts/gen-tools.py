@@ -23,7 +23,7 @@ README = ROOT / "README.md"
 START, END = "<!-- tools:start -->", "<!-- tools:end -->"
 
 SECTION = re.compile(r"^# ── (.+?) ─")
-ENTRY = re.compile(r'^(brew|cask|mas|vscode|tap) "([^"]+)"(?:, id: (\d+))?\s*(?:#\s*(.*))?$')
+ENTRY = re.compile(r'^(brew|cask|mas|vscode|tap) "([^"]+)"((?:,\s*[^#]+?)?)\s*(?:#\s*(.*))?$')
 
 
 def parse_brewfile():
@@ -34,7 +34,8 @@ def parse_brewfile():
             sections.append(current)
             continue
         if m := ENTRY.match(line.strip()):
-            kind, name, mas_id, note = m.groups()
+            kind, name, opts, note = m.groups()
+            mas_id = (re.search(r"id:\s*(\d+)", opts) or [None, None])[1]
             if kind == "tap":
                 taps[name] = None
             elif current is not None:

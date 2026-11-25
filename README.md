@@ -130,7 +130,7 @@ brew bundle --file=Brewfile
 
 ## Shell
 
-- **Terminal:** [Ghostty](https://ghostty.org), with [Herdr](https://herdr.dev) to run terminals and coding agents side by side. Config: [`home/.config/ghostty/config`](home/.config/ghostty/config).
+- **Terminal:** [Ghostty](https://ghostty.org), with [Herdr](https://herdr.dev) and [cmux](https://www.cmux.dev) to run terminals and coding agents side by side. Config: [`home/.config/ghostty/config`](home/.config/ghostty/config).
 - **Font:** [Geist Mono](https://vercel.com/font) from [Nerd Fonts](https://www.nerdfonts.com). The Nerd Font glyphs are necessary for the prompt icons.
 - **Prompt:** [Starship](https://starship.rs), with the [Nerd Font Symbols preset](https://starship.rs/presets/nerd-font) in [`home/.config/starship.toml`](home/.config/starship.toml).
 - **Shell:** zsh, no framework. [`home/.zshrc`](home/.zshrc) loads the modules in [`home/.config/zsh`](home/.config/zsh) and caches the init scripts of mise, fzf, and Starship. A new shell starts in about 50 ms.
@@ -222,6 +222,7 @@ Install one tool with the command in its row. The [Brewfile](Brewfile) has all o
 | --- | --- | --- |
 | [Ghostty](https://ghostty.org/) | [`brew install --cask ghostty`](https://formulae.brew.sh/cask/ghostty) | GPU terminal |
 | [Herdr](https://herdr.dev/) | [`brew install --cask herdr-app`](https://formulae.brew.sh/cask/herdr-app) | Desktop app for terminals and coding agents |
+| [cmux](https://www.cmux.dev/) | [`brew install --cask cmux`](https://formulae.brew.sh/cask/cmux) | Ghostty-based terminal with vertical tabs for agents |
 | [starship](https://starship.rs/) | [`brew install starship`](https://formulae.brew.sh/formula/starship) | Shell prompt |
 | [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) | [`brew install zsh-autosuggestions`](https://formulae.brew.sh/formula/zsh-autosuggestions) | Suggest commands from history |
 | [zsh-fast-syntax-highlighting](https://github.com/zdharma-continuum/fast-syntax-highlighting) | [`brew install zsh-fast-syntax-highlighting`](https://formulae.brew.sh/formula/zsh-fast-syntax-highlighting) | Color commands as you type |
@@ -278,7 +279,7 @@ Install one tool with the command in its row. The [Brewfile](Brewfile) has all o
 | [OrbStack](https://orbstack.dev/) | [`brew install --cask orbstack`](https://formulae.brew.sh/cask/orbstack) | Docker and Linux VMs |
 | [helm](https://helm.sh/) | [`brew install helm`](https://formulae.brew.sh/formula/helm) | Kubernetes package manager |
 | [awscli](https://aws.amazon.com/cli/) | [`brew install awscli`](https://formulae.brew.sh/formula/awscli) | Official Amazon AWS command-line interface |
-| [postgresql@16](https://www.postgresql.org/) | [`brew install postgresql@16`](https://formulae.brew.sh/formula/postgresql@16) | Object-relational database system |
+| [postgresql@16](https://www.postgresql.org/) | [`brew install postgresql@16`](https://formulae.brew.sh/formula/postgresql@16) | keg-only; linked so psql is on PATH |
 
 ### Media and documents
 

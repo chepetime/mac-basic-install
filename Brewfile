@@ -8,6 +8,7 @@ tap "russmckendrick/tap"
 # ── Terminal ────────────────────────────────────────────────
 cask "ghostty"                    # GPU terminal
 cask "herdr-app"                  # Desktop app for terminals and coding agents
+cask "cmux"                       # Ghostty-based terminal with vertical tabs for agents
 brew "starship"                   # Shell prompt
 brew "zsh-autosuggestions"        # Suggest commands from history
 brew "zsh-fast-syntax-highlighting" # Color commands as you type
@@ -46,7 +47,7 @@ brew "nono"                       # Sandbox for agents
 cask "orbstack"                   # Docker and Linux VMs
 brew "helm"
 brew "awscli"
-brew "postgresql@16"
+brew "postgresql@16", link: true  # keg-only; linked so psql is on PATH
 
 # ── Media and documents ─────────────────────────────────────
 brew "ffmpeg"
