@@ -8,3 +8,8 @@ if ! command -v gitleaks >/dev/null 2>&1; then
 fi
 
 gitleaks git --pre-commit --staged --redact --no-banner
+
+# README tool tables must match the Brewfile
+if git diff --cached --name-only | grep -qE '^(Brewfile|README\.md)$'; then
+  "$(git rev-parse --show-toplevel)/scripts/gen-tools.py" --check
+fi

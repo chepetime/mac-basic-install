@@ -94,33 +94,32 @@ brew "mas"
 mas "BetterSnapTool", id: 417375580   # Window snapping
 mas "Paste", id: 967805235            # Clipboard history
 mas "Folder Peek", id: 1615988943     # Folders in the menu bar
-mas "Speedtest", id: 1153157709
-mas "Xcode", id: 497799835
-mas "Keynote", id: 409183694
-mas "Keynote Creator Studio", id: 361285480
-mas "Pages Creator Studio", id: 361309726
-mas "Numbers Creator Studio", id: 361304891
+mas "Speedtest", id: 1153157709        # Network speed test
+mas "Xcode", id: 497799835            # Apple SDKs and simulators
+mas "Keynote", id: 361285480          # Presentations
+mas "Pages", id: 361309726            # Documents
+mas "Numbers", id: 361304891          # Spreadsheets
 
 # ── VS Code extensions ──────────────────────────────────────
-vscode "anthropic.claude-code"
-vscode "openai.chatgpt"
-vscode "openai.codex-audio"
-vscode "biomejs.biome"
-vscode "bradlc.vscode-tailwindcss"
-vscode "formulahendry.auto-rename-tag"
-vscode "github.vscode-github-actions"
-vscode "graphql.vscode-graphql"
-vscode "graphql.vscode-graphql-syntax"
-vscode "mquandalle.graphql"
-vscode "prisma.prisma"
-vscode "redhat.vscode-yaml"
-vscode "ms-vscode.vscode-typescript-next"
-vscode "ms-azuretools.vscode-containers"
-vscode "ms-vscode-remote.remote-containers"
-vscode "cweijan.vscode-postgresql-client2"
-vscode "cweijan.dbclient-jdbc"
-vscode "ms-vscode.sublime-keybindings"
-vscode "vscode-icons-team.vscode-icons"
+vscode "anthropic.claude-code"                # Claude Code for VS Code
+vscode "openai.chatgpt"                       # Codex, OpenAI's coding agent
+vscode "openai.codex-audio"                   # Codex dictation (microphone)
+vscode "biomejs.biome"                        # Biome: format and lint JS/TS
+vscode "bradlc.vscode-tailwindcss"            # Tailwind CSS IntelliSense
+vscode "formulahendry.auto-rename-tag"        # Rename paired HTML/XML tags
+vscode "github.vscode-github-actions"         # GitHub Actions workflows and runs
+vscode "graphql.vscode-graphql"               # GraphQL language support
+vscode "graphql.vscode-graphql-syntax"        # GraphQL syntax highlighting
+vscode "mquandalle.graphql"                   # GraphQL syntax highlighting (legacy)
+vscode "prisma.prisma"                        # Prisma schema support
+vscode "redhat.vscode-yaml"                   # YAML language support
+vscode "ms-vscode.vscode-typescript-next"     # TypeScript nightly
+vscode "ms-azuretools.vscode-containers"      # Container tools
+vscode "ms-vscode-remote.remote-containers"   # Dev Containers
+vscode "cweijan.vscode-postgresql-client2"    # PostgreSQL client
+vscode "cweijan.dbclient-jdbc"                # JDBC adapter for the database client
+vscode "ms-vscode.sublime-keybindings"        # Sublime Text keymap
+vscode "vscode-icons-team.vscode-icons"       # File icons
 
 # ── macOS utilities ─────────────────────────────────────────
 cask "dockdoor"                   # Window previews in the Dock
